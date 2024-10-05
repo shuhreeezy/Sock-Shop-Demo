@@ -64,19 +64,19 @@ variable "ingress_cidrs" {
   default = ["0.0.0.0/0"]
 }
 
-# Route 53 variables
-variable "domain_name" {
-  description = "Domain name to be managed by Route 53"
-  type        = string
-}
+# # Route 53 variables
+# variable "domain_name" {
+#   description = "Domain name to be managed by Route 53"
+#   type        = string
+# }
 
-# Load Balancer values (used in Route 53 DNS record)
-variable "lb_dns_name" {
-  description = "DNS name of the NGINX Ingress Controller LoadBalancer"
-  type        = string
-}
+# # Load Balancer values (used in Route 53 DNS record)
+# variable "lb_dns_name" {
+#   description = "DNS name of the NGINX Ingress Controller LoadBalancer"
+#   type        = string
+# }
 
-variable "lb_zone_id" {
-  description = "Zone ID of the LoadBalancer (for Route 53)"
-  type        = string
-}
+# variable "lb_zone_id" {
+#   description = "Zone ID of the LoadBalancer (for Route 53)"
+#   type        = string
+# }

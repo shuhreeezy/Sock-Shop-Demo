@@ -14,9 +14,9 @@ max_capacity           = 3
 min_capacity           = 1
 kubernetes_version     = "1.30"
 
-# Route 53 domain settings
-domain_name            = "yourdomain.com"  # Replace with your domain name
+# # Route 53 domain settings
+# domain_name            = "yourdomain.com"  # Replace with your domain name
 
-# LoadBalancer values (to be updated after the NGINX Ingress is deployed)
-lb_dns_name            = "nginx-ingress-loadbalancer-123456789.us-west-2.elb.amazonaws.com"  # Replace with the actual LoadBalancer DNS name
-lb_zone_id             = "Z35SXDOTRQ7X7K"  # Replace with the actual LoadBalancer Zone ID
+# # LoadBalancer values (to be updated after the NGINX Ingress is deployed)
+# lb_dns_name            = "nginx-ingress-loadbalancer-123456789.us-west-2.elb.amazonaws.com"  # Replace with the actual LoadBalancer DNS name
+# lb_zone_id             = "Z35SXDOTRQ7X7K"  # Replace with the actual LoadBalancer Zone ID
