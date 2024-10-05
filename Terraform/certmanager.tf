@@ -23,12 +23,12 @@ resource "aws_route53_record" "cert_validation" {
     }
   }
 
-  zone_id = aws_route53_zone.sock_shop_zone.zone_id  # Adjust zone_id to your hosted zone ID variable
-  name    = each.value.name
-  type    = each.value.type
-  ttl     = 60
-  records = [each.value.value]
-}
+#   zone_id = aws_route53_zone.sock_shop_zone.zone_id  # Adjust zone_id to your hosted zone ID variable
+#   name    = each.value.name
+#   type    = each.value.type
+#   ttl     = 60
+#   records = [each.value.value]
+# }
 
 # Certificate validation after DNS records are created
 resource "aws_acm_certificate_validation" "cert_validation" {
