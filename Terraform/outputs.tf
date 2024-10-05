@@ -25,7 +25,7 @@ output "eks_cluster_name" {
 #   description = "Hosted zone ID of the NGINX LoadBalancer"
 # }
 
-output "certificate_arn" {
-  value = aws_acm_certificate.cert.arn
-  description = "The ARN of the ACM Certificate issued for the domain"
-}
+# output "certificate_arn" {
+#   value = aws_acm_certificate.cert.arn
+#   description = "The ARN of the ACM Certificate issued for the domain"
+# }
