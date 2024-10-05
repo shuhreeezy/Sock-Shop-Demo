@@ -21,7 +21,7 @@
 #       type   = dvo.resource_record_type
 #       value  = dvo.resource_record_value
 #     }
-  }
+#   }
 
 #   zone_id = aws_route53_zone.sock_shop_zone.zone_id  # Adjust zone_id to your hosted zone ID variable
 #   name    = each.value.name
