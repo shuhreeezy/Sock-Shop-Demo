@@ -57,6 +57,11 @@ variable "kubernetes_version" {
   type = string
 }
 
+variable "node_group_name" {
+  description = "The name of the EKS node group"
+  type        = string
+}
+
 # Security group
 variable "ingress_cidrs" {
   description = "List of CIDR blocks for ingress rules"

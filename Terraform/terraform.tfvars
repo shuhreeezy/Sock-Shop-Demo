@@ -9,6 +9,7 @@ availability_zones     = ["us-west-2a", "us-west-2b"]
 # EKS settings
 cluster_name           = "sock-shop-cluster"
 eks_node_instance_type = "t3.medium"
+node_group_name        = "my-node-group"
 desired_capacity       = 2
 max_capacity           = 3
 min_capacity           = 1
