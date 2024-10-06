@@ -50,7 +50,7 @@ resource "aws_security_group" "eks_control_plane_sg" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    security_group = aws_security_group.eks_security_group.id  # Refers to worker node SG
+    security_groups = aws_security_group.eks_security_group.id  # Refers to worker node SG
   }
 
   # Ingress rule allowing communication from worker nodes on port 10250
@@ -58,7 +58,7 @@ resource "aws_security_group" "eks_control_plane_sg" {
     from_port   = 10250
     to_port     = 10250
     protocol    = "tcp"
-    security_group = aws_security_group.eks_security_group.id  # Refers to worker node SG
+    security_groups = aws_security_group.eks_security_group.id  # Refers to worker node SG
   }
 
   # Outbound rule allowing all traffic
