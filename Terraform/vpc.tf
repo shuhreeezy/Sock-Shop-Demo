@@ -17,6 +17,8 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
   tags = {
     Name = "${var.project_name}-public-subnet-${count.index + 1}"
+    "kubernetes.io/role/elb"  = "1"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
