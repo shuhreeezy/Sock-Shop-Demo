@@ -10,8 +10,8 @@ resource "aws_route53_record" "app_record" {
   type    = "A"
 
   alias {
-    name                   = var.lb_dns_name  # NGINX LoadBalancer DNS name
-    zone_id                = var.lb_zone_id   # LoadBalancer's hosted zone ID
+    name                   = var.lb_dns_name # NGINX LoadBalancer DNS name
+    zone_id                = var.lb_zone_id  # LoadBalancer's hosted zone ID
     evaluate_target_health = false
   }
 }
