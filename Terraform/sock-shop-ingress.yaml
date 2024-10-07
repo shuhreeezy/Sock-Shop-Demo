@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com # Ensure this points to your domain
+  - host: a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com  # Change this to your domain if needed
     http:
       paths:
       - path: /
@@ -16,4 +16,4 @@ spec:
           service:
             name: front-end
             port:
-              number: 80  # Updated to use the correct service port
+              number: 80  # This should be the service port, which is 80
