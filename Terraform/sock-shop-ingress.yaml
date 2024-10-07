@@ -17,3 +17,6 @@ spec:
             name: front-end
             port:
               number: 80
+            port:
+              number: 443
+          
