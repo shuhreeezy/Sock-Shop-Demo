@@ -5,10 +5,9 @@ metadata:
   namespace: sock-shop
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: babadjanov.com
+  - host: babadjanov.com  # Ensure this points to your domain
     http:
       paths:
       - path: /
@@ -17,4 +16,4 @@ spec:
           service:
             name: front-end
             port:
-              number: 80
+              number: 80  # Updated to use the correct service port
