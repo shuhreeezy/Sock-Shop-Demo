@@ -15,19 +15,6 @@ output "route53_zone_id" {
   value = aws_route53_zone.sock_shop_zone.zone_id
 }
 
-<<<<<<< HEAD
-output "lb_dns_name" {
-  value       = aws_lb.nginx_lb.dns_name
-  description = "DNS name of the NGINX LoadBalancer"
-}
-
-output "lb_zone_id" {
-  value       = aws_lb.nginx_lb.zone_id
-  description = "Hosted zone ID of the NGINX LoadBalancer"
-}
-
-=======
->>>>>>> 6bd01e2bbb3f6c94c90b810542f47d0537fe27b0
 output "certificate_arn" {
   value       = aws_acm_certificate.cert.arn
   description = "The ARN of the ACM Certificate issued for the domain"
