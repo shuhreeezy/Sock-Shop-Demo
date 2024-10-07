@@ -15,7 +15,10 @@ output "route53_zone_id" {
   value = aws_route53_zone.sock_shop_zone.zone_id
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1fea3fa16c6c6fce6cfcf98fafdc27fdd27d038d
 output "certificate_arn" {
   value       = aws_acm_certificate.cert.arn
   description = "The ARN of the ACM Certificate issued for the domain"
