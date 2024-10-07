@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: babadjanov.com  # Ensure this points to your domain
+  - host: a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com # Ensure this points to your domain
     http:
       paths:
       - path: /
