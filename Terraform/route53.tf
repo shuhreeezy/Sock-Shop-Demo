@@ -4,6 +4,7 @@ resource "aws_route53_zone" "sock_shop_zone" {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # # A Record to point to the NGINX LoadBalancer (ALB)
 # resource "aws_route53_record" "app_record" {
 #   zone_id = aws_route53_zone.sock_shop_zone.zone_id
@@ -18,6 +19,9 @@ resource "aws_route53_zone" "sock_shop_zone" {
 # }
 =======
 # A Record to point to the NGINX LoadBalancer (ALB)
+=======
+ # A Record to point to the NGINX LoadBalancer (ALB)
+>>>>>>> b25eba9a0ec6a0f6127e02a07bf6f9b4e1db5872
 resource "aws_route53_record" "app_record" {
   zone_id = aws_route53_zone.sock_shop_zone.zone_id
   name    = var.domain_name
