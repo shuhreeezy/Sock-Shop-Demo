@@ -75,16 +75,16 @@ variable "domain_name" {
   type        = string
 }
 
-# # Load Balancer values (used in Route 53 DNS record)
-# variable "lb_dns_name" {
-#   description = "DNS name of the NGINX Ingress Controller LoadBalancer"
-#   type        = string
-# }
+# Load Balancer values (used in Route 53 DNS record)
+variable "lb_dns_name" {
+  description = "DNS name of the NGINX Ingress Controller LoadBalancer"
+  type        = string
+}
 
-# variable "lb_zone_id" {
-#   description = "Zone ID of the LoadBalancer (for Route 53)"
-#   type        = string
-# }
+variable "lb_zone_id" {
+  description = "Zone ID of the LoadBalancer (for Route 53)"
+  type        = string
+}
 
 # AWS ACM Certificate Manager
 variable "certificate_arn" {

@@ -8,7 +8,7 @@ resource "aws_security_group" "eks_security_group" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Open to public internet, you can restrict this further
+    cidr_blocks = ["0.0.0.0/0"] # Open to public internet, you can restrict this further
   }
 
   # Allow inbound traffic from EKS Control Plane (Port 10250 for Kubelet API)
@@ -16,7 +16,7 @@ resource "aws_security_group" "eks_security_group" {
     from_port   = 10250
     to_port     = 10250
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # You can replace this with your control plane SG if more restrictive
+    cidr_blocks = ["0.0.0.0/0"] # You can replace this with your control plane SG if more restrictive
   }
 
   # Allow outbound traffic from worker nodes to anywhere (internet access)
@@ -24,7 +24,7 @@ resource "aws_security_group" "eks_security_group" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]  # Open to all outbound traffic
+    cidr_blocks = ["0.0.0.0/0"] # Open to all outbound traffic
   }
 
   # Optional: Allow worker nodes to talk to each other
@@ -32,7 +32,7 @@ resource "aws_security_group" "eks_security_group" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = [aws_vpc.main.cidr_block]  # Allow intra-node communication
+    cidr_blocks = [aws_vpc.main.cidr_block] # Allow intra-node communication
   }
 
   tags = {
@@ -47,18 +47,18 @@ resource "aws_security_group" "eks_control_plane_sg" {
 
   # Ingress rule allowing communication from worker nodes on port 443
   ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    security_groups = [aws_security_group.eks_security_group.id]  # Refers to worker node SG
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    security_groups = [aws_security_group.eks_security_group.id] # Refers to worker node SG
   }
 
   # Ingress rule allowing communication from worker nodes on port 10250
   ingress {
-    from_port   = 10250
-    to_port     = 10250
-    protocol    = "tcp"
-    security_groups = [aws_security_group.eks_security_group.id]  # Refers to worker node SG
+    from_port       = 10250
+    to_port         = 10250
+    protocol        = "tcp"
+    security_groups = [aws_security_group.eks_security_group.id] # Refers to worker node SG
   }
 
   # Outbound rule allowing all traffic
