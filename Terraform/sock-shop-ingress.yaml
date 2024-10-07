@@ -3,9 +3,14 @@ kind: Ingress
 metadata:
   name: sock-shop-ingress
   namespace: sock-shop
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"  # Enable regex matching if you want to use regular expressions in paths
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"  # Specify protocol used by the backend service
+    nginx.ingress.kubernetes.io/auth-type: "basic"  # Example for basic auth, modify as needed
 spec:
   rules:
-  - host: a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com  # Your domain
+  - host: a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com  # Your load balancer DNS
     http:
       paths:
       - path: /
