@@ -152,3 +152,8 @@ resource "kubernetes_service_account" "my_service_account" {
 data "aws_eks_cluster_auth" "eks_auth" {
   name = aws_eks_cluster.eks_cluster.name # Ensure this matches your EKS cluster resource name
 }
+
+resource "aws_iam_role_policy_attachment" "eks_ec2_container_registry" {
+  role       = aws_iam_role.eks_node_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
