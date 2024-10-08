@@ -90,9 +90,3 @@ variable "lb_zone_id" {
   description = "Zone ID of the LoadBalancer (for Route 53)"
   type        = string
 }
-
-# AWS ACM Certificate Manager
-variable "certificate_arn" {
-  description = "The ARN of the AWS ACM Certificate"
-  type        = string
-}
