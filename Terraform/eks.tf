@@ -115,12 +115,12 @@ resource "aws_eks_cluster_openid_connect_provider" "eks_oidc" {
 data "aws_iam_policy_document" "service_account_assume_role_policy" {
   statement {
     actions = ["sts:AssumeRole"]
-    
+
     principals {
       type        = "Federated"
       identifiers = ["arn:aws:iam::${var.account_id}:oidc-provider/oidc.eks.${var.region}.amazonaws.com/id/${aws_eks_cluster.eks_cluster.id}"]
     }
-    
+
     effect = "Allow"
   }
 }
@@ -139,7 +139,7 @@ resource "aws_iam_role" "service_account_role" {
 resource "kubernetes_service_account" "my_service_account" {
   metadata {
     name      = "my-service-account"
-    namespace = "default"  # Specify the desired namespace
+    namespace = "default" # Specify the desired namespace
     annotations = {
       "eks.amazonaws.com/role-arn" = aws_iam_role.service_account_role.arn
     }
