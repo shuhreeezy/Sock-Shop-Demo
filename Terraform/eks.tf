@@ -27,6 +27,16 @@ resource "aws_eks_node_group" "eks_node_group" {
     max_size     = var.max_capacity
     min_size     = var.min_capacity
   }
+<<<<<<< HEAD
+=======
+  
+
+  # Adding the required tags
+  tags = {
+    "kubernetes.io/cluster/${aws_eks_cluster.eks_cluster.name}" = "owned"
+    Name = "${var.node_group_name}"  # Add any additional tags as needed
+  }
+>>>>>>> b53b83f7b82dba15763472f4c722da224963db1a
 
   depends_on = [
     aws_eks_cluster.eks_cluster,
