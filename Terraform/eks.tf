@@ -32,7 +32,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   # Adding the required tags
   tags = {
     "kubernetes.io/cluster/${aws_eks_cluster.eks_cluster.name}" = "owned"
-    Name = "${var.project_name}-node-group"  # Add any additional tags as needed
+    Name = "${var.node_group_name}"  # Add any additional tags as needed
   }
 
   depends_on = [
