@@ -27,9 +27,13 @@ resource "aws_eks_node_group" "eks_node_group" {
     max_size     = var.max_capacity
     min_size     = var.min_capacity
   }
+<<<<<<< HEAD
 
   enable_bootstrap_user_data = true
 
+=======
+  
+>>>>>>> 471b3f920ea3953dc43b719ace13af674dc2accd
   depends_on = [
     aws_eks_cluster.eks_cluster,
     aws_iam_role.eks_node_role,
