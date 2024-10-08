@@ -106,10 +106,6 @@ resource "aws_iam_role_policy_attachment" "eks_vpc_resource_controller" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
 }
 
-# Create the OIDC provider for EKS
-resource "aws_eks_cluster_openid_connect_provider" "eks_oidc" {
-  cluster_name = aws_eks_cluster.eks_cluster.name
-}
 
 # IAM policy document for the service account role
 data "aws_iam_policy_document" "service_account_assume_role_policy" {

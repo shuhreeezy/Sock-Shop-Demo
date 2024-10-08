@@ -4,6 +4,11 @@ variable "project_name" {
   type        = string
 }
 
+variable "account_id" {
+  description = "The AWS account ID."
+  type        = string
+}
+
 # AWS region
 variable "aws_region" {
   description = "AWS region"
