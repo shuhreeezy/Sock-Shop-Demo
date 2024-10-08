@@ -143,5 +143,5 @@ resource "kubernetes_service_account" "my_service_account" {
 }
 
 data "aws_eks_cluster_auth" "eks_auth" {
-  name = aws_eks_cluster.eks_cluster.name  # Ensure this matches your EKS cluster resource name
+  name = aws_eks_cluster.eks_cluster.name # Ensure this matches your EKS cluster resource name
 }

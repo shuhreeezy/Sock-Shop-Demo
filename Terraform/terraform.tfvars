@@ -2,7 +2,7 @@
 project_name = "sock-shop"
 
 # AWS Account ID
-account_id = "082154468366"  # Replace with your actual AWS account ID
+account_id = "082154468366" # Replace with your actual AWS account ID
 
 # AWS Region
 aws_region = "us-west-2"
@@ -22,11 +22,11 @@ min_capacity           = 1
 kubernetes_version     = "1.30"
 
 # Route 53 domain settings
-domain_name = "babadjanov.com"  # Replace with your domain name
+domain_name = "babadjanov.com" # Replace with your domain name
 
 # ACM Certificate ARN
 certificate_arn = "arn:aws:acm:us-west-2:082154468366:certificate/0b014d54-9a46-4c8e-b4e0-269cc8ac3dc8"
 
 # LoadBalancer values (to be updated after the NGINX Ingress is deployed)
-lb_dns_name = "a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com"  # Replace with the actual LoadBalancer DNS name
-lb_zone_id  = "Z1H1FL5HABSF5"  # Replace with the actual LoadBalancer Zone ID
+lb_dns_name = "a65aa497c7b6648b99bebac1924e665f-400835419.us-west-2.elb.amazonaws.com" # Replace with the actual LoadBalancer DNS name
+lb_zone_id  = "Z1H1FL5HABSF5"                                                          # Replace with the actual LoadBalancer Zone ID
