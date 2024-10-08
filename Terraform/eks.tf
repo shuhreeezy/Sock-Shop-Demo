@@ -1,4 +1,5 @@
 # EKS Cluster
+# Create the EKS Cluster
 resource "aws_eks_cluster" "eks_cluster" {
   name     = var.cluster_name
   role_arn = aws_iam_role.eks_cluster_role.arn
@@ -32,7 +33,6 @@ resource "aws_eks_node_group" "eks_node_group" {
     aws_iam_role.eks_node_role,
   ]
 }
-
 
 # IAM policy document for EKS Cluster role (EKS service)
 data "aws_iam_policy_document" "eks_assume_role_policy" {
@@ -104,4 +104,44 @@ resource "aws_iam_role_policy_attachment" "eks_cni_policy" {
 resource "aws_iam_role_policy_attachment" "eks_vpc_resource_controller" {
   role       = aws_iam_role.eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+}
+
+# Create the OIDC provider for EKS
+resource "aws_eks_cluster_openid_connect_provider" "eks_oidc" {
+  cluster_name = aws_eks_cluster.eks_cluster.name
+}
+
+# IAM policy document for the service account role
+data "aws_iam_policy_document" "service_account_assume_role_policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    
+    principals {
+      type        = "Federated"
+      identifiers = ["arn:aws:iam::${var.account_id}:oidc-provider/oidc.eks.${var.region}.amazonaws.com/id/${aws_eks_cluster.eks_cluster.id}"]
+    }
+    
+    effect = "Allow"
+  }
+}
+
+# IAM role for the service account
+resource "aws_iam_role" "service_account_role" {
+  name               = "${var.project_name}-service-account-role"
+  assume_role_policy = data.aws_iam_policy_document.service_account_assume_role_policy.json
+
+  tags = {
+    Name = "${var.project_name}-service-account-role"
+  }
+}
+
+# Service Account in Kubernetes
+resource "kubernetes_service_account" "my_service_account" {
+  metadata {
+    name      = "my-service-account"
+    namespace = "default"  # Specify the desired namespace
+    annotations = {
+      "eks.amazonaws.com/role-arn" = aws_iam_role.service_account_role.arn
+    }
+  }
 }
