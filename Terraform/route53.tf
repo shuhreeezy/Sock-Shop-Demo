@@ -11,7 +11,7 @@ resource "aws_route53_record" "app_record" {
 
   alias {
     name                   = var.lb_dns_name # NGINX LoadBalancer DNS name
-    zone_id                = var.lb_zone_id  # LoadBalancer's hosted zone ID
+    zone_id                = var.lb_zone_id  # LoadBalancer's hosted zone ID , if ELB has no host id, use default for regions when using nginx/stable
     evaluate_target_health = false
   }
 }
