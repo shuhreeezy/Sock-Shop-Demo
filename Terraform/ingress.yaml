@@ -18,7 +18,7 @@ spec:
         paths:
         - backend:
             service:
-              name: shipping
+              name: front-end
               port:
                 number: 80
           path: /
