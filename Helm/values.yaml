@@ -221,7 +221,7 @@ payment:
   ingress:
     # payment.ingress.enabled -- Whether to deploy Ingress resource for payment service
     enabled: yes
-    ingressClassName: ingress-nginx
+    ingressClassName: traefik
     hostname: "babadjanov.com"
     tls: false
     annotations: {}
@@ -266,7 +266,7 @@ shipping:
   ingress:
     # shipping.ingress.enables -- Whether to deploy Ingress resource for shipping service
     enabled: true
-    ingressClassName: ingress-nginx
+    ingressClassName: traefik
     hostname: "babadjanov.com"
     tls: false
     annotations: {}

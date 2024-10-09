@@ -25,5 +25,5 @@ kubernetes_version     = "1.30"
 domain_name = "babadjanov.com" # Replace with your domain name
 
 # LoadBalancer values (to be updated after the NGINX Ingress is deployed)
-lb_dns_name = "a68d9d55fdf7f485f8cf9ee26ed461a4-780318544.us-west-2.elb.amazonaws.com" # Replace with the actual LoadBalancer DNS name
+lb_dns_name = "a3d58aa18219247539d2aa3d35f63117-1928582279.us-west-2.elb.amazonaws.com" # Replace with the actual LoadBalancer DNS name
 lb_zone_id  = "Z1H1FL5HABSF5"                                                          # Replace with the actual LoadBalancer Zone ID
