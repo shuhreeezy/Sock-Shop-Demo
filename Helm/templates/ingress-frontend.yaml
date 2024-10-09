@@ -21,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "sock-shop.fullname" . }}-frontend
+                name: frontend
                 port:
                   number: 80
   {{- if .Values.frontend.ingress.tls }}
