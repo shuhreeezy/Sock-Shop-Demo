@@ -121,6 +121,7 @@ frontend:
     enabled: true
     ingressClassName: traefik
     hostname: "babadjanov.com"
+    path: "/"
     tls: false
     annotations: 
       traefik.ingress.kubernetes.io/router.entrypoints: web
