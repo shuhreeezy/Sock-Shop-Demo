@@ -24,6 +24,6 @@ kubernetes_version     = "1.30"
 # Route 53 domain settings
 domain_name = "babadjanov.com" # Replace with your domain name
 
-# LoadBalancer values (to be updated after the NGINX Ingress is deployed)
-lb_dns_name = "ab40eb434151e481da8671d68073e7da-1567435692.us-west-2.elb.amazonaws.com" # Replace with the actual LoadBalancer DNS name
-lb_zone_id  = "Z1H1FL5HABSF5"                                                          # Replace with the actual LoadBalancer Zone ID
+# # LoadBalancer values (to be updated after the NGINX Ingress is deployed)
+# lb_dns_name = "ab40eb434151e481da8671d68073e7da-1567435692.us-west-2.elb.amazonaws.com" # Replace with the actual LoadBalancer DNS name
+# lb_zone_id  = "Z1H1FL5HABSF5"                                                          # Replace with the actual LoadBalancer Zone ID
