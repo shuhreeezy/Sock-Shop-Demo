@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: {{ .Values.frontend.ingress.ingressClassName | quote }}
   rules:
-    - host: {{tpl .Values.frontend.ingress.hostname | quote }}
+    - host: {{ (tpl .Values.frontend.ingress.hostname .) | quote }}
       http:
         paths:
           - path: /
