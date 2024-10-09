@@ -119,6 +119,7 @@ frontend:
     userHost: user
 
 ingress:
+  enabled: false
   # ingress.replicas -- The number or replicas of `ingress` deployment.
   replicas: 1
   annotations: {}
