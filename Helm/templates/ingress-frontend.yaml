@@ -7,7 +7,9 @@ metadata:
     {{- include "component.common.labels" ("front-end") | nindent 4 }}
     {{- include "sock-shop.common.labels" . | nindent 4 }}
   annotations:
-    {{- toYaml .Values.frontend.ingress.annotations | nindent 4 }}
+  {{- with .Values.payment.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   ingressClassName: {{ .Values.frontend.ingress.ingressClassName | quote }}
   rules:
