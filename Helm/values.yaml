@@ -121,7 +121,7 @@ frontend:
     enabled: true
     ingressClassName: traefik
     hostname: "babadjanov.com"
-    path: "/"
+    path: "/front-end"
     tls: false
     annotations: {}
 
