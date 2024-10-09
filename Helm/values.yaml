@@ -219,7 +219,7 @@ payment:
       memory: 100Mi
   ingress:
     # payment.ingress.enabled -- Whether to deploy Ingress resource for payment service
-    enabled: false
+    enabled: yes
     ingressClassName: ingress-nginx
     hostname: ""
     tls: false
@@ -264,7 +264,7 @@ shipping:
       memory: 1000Mi
   ingress:
     # shipping.ingress.enables -- Whether to deploy Ingress resource for shipping service
-    enabled: false
+    enabled: true
     ingressClassName: ingress-nginx
     hostname: ""
     tls: false
