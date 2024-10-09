@@ -1,0 +1,30 @@
+{{- if .Values.frontend.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "sock-shop.fullname" . }}-frontend
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "sock-shop.labels" . | nindent 4 }}
+  annotations:
+    {{- toYaml .Values.frontend.ingress.annotations | nindent 4 }}
+spec:
+  ingressClassName: {{ .Values.frontend.ingress.ingressClassName }}
+  rules:
+    - host: {{ .Values.frontend.ingress.hostname }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "sock-shop.fullname" . }}-frontend
+                port:
+                  number: 80
+  {{- if .Values.frontend.ingress.tls }}
+  tls:
+    - hosts:
+        - {{ .Values.frontend.ingress.hostname }}
+      secretName: {{ .Values.frontend.ingress.tlsSecretName }}
+  {{- end }}
+{{- end }}
