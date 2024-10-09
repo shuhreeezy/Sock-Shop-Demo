@@ -221,7 +221,7 @@ payment:
     # payment.ingress.enabled -- Whether to deploy Ingress resource for payment service
     enabled: yes
     ingressClassName: ingress-nginx
-    hostname: ""
+    hostname: "babadjanov.com"
     tls: false
     annotations: {}
 
@@ -266,7 +266,7 @@ shipping:
     # shipping.ingress.enables -- Whether to deploy Ingress resource for shipping service
     enabled: true
     ingressClassName: ingress-nginx
-    hostname: ""
+    hostname: "babadjanov.com"
     tls: false
     annotations: {}
 
