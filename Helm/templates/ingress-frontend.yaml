@@ -2,19 +2,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "sock-shop.fullname" . }}-frontend
-  namespace: {{ .Release.Namespace }}
+  name: front-end
   labels:
-    app.kubernetes.io/name: frontend
-    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "component.common.labels" ("front-end") | nindent 4 }}
+    {{- include "sock-shop.common.labels" . | nindent 4 }}
   annotations:
     {{- toYaml .Values.frontend.ingress.annotations | nindent 4 }}
 spec:
-  ingressClassName: {{ .Values.frontend.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.frontend.ingress.ingressClassName | quote }}
   rules:
-    - host: {{ .Values.frontend.ingress.hostname }}
+    - host: {{tpl .Values.frontend.ingress.hostname | quote }}
       http:
         paths:
           - path: /
@@ -27,7 +24,7 @@ spec:
   {{- if .Values.frontend.ingress.tls }}
   tls:
     - hosts:
-        - {{ .Values.frontend.ingress.hostname }}
-      secretName: {{ .Values.frontend.ingress.tlsSecretName }}
+        - {{ .Values.frontend.ingress.hostname | quote }}
+      secretName: {{ printf "%s-tls" .Values.frontend.ingress.hostname }}
   {{- end }}
 {{- end }}
