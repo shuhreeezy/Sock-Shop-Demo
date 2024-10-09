@@ -5,7 +5,10 @@ metadata:
   name: {{ include "sock-shop.fullname" . }}-frontend
   namespace: {{ .Release.Namespace }}
   labels:
-    {{- include "sock-shop.labels" . | nindent 4 }}
+    app.kubernetes.io/name: frontend
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
     {{- toYaml .Values.frontend.ingress.annotations | nindent 4 }}
 spec:
