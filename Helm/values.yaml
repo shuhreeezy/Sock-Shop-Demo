@@ -123,8 +123,7 @@ frontend:
     hostname: "babadjanov.com"
     path: "/"
     tls: false
-    annotations: 
-      traefik.ingress.kubernetes.io/router.entrypoints: web
+    annotations: {}
 
 ingress:
   # ingress.replicas -- The number or replicas of `ingress` deployment.
