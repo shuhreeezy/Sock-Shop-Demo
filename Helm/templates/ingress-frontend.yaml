@@ -21,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend
+                name: front-end
                 port:
                   number: 80
   {{- if .Values.frontend.ingress.tls }}
