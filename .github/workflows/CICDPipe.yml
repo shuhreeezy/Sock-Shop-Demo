@@ -1,7 +1,7 @@
 name: CI/CD Pipeline
 
-# on:
-#   push:
+on:
+  push:
     branches:
       - master  # Adjust to your main branch
 
