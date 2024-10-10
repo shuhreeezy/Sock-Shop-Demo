@@ -77,3 +77,20 @@ jobs:
       - name: Helm Upgrade and Install
         run: |
           helm upgrade --install my-sock-shop ./Helm  # Set the path to your Helm chart
+      
+      # Install Prometheus using Helm
+      - name: Install Prometheus
+        run: |
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo update
+          helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+
+      # Install Grafana using Helm
+      - name: Install Grafana
+        run: |
+          helm repo add grafana https://grafana.github.io/helm-charts
+          helm repo update
+          helm upgrade --install grafana grafana/grafana --namespace monitoring --create-namespace
+          
+      # Optionally, expose Grafana using Ingress or LoadBalancer
+      # Or port-forwarding can be used for manual access
